@@ -57,7 +57,7 @@ class Course(models.Model):
     description = models.CharField(max_length=500)
     # Many-To-Many relationship with Instructor
     instructors = models.ManyToManyField(Instructor)
-    learners = models.ManyToManyField(Learner, through='Enrollement')
+    learners = models.ManyToManyField(Learner, through='Enrollment')
     
     # Create a toString method for object string representation
     def __str__(self):
