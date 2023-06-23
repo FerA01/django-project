@@ -43,7 +43,6 @@ class Learner(User):
     )
     social_link = models.URLField(max_length=200)
     
-    ##<HINT> Create a __str__ method returning a string presentation
     def __str__(self):
         return "First name: " + self.first_name + ", " + \
                "Last name: " + self.last_name + ", " + \
