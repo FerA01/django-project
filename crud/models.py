@@ -46,8 +46,8 @@ class Learner(User):
     def __str__(self):
         return "First name: " + self.first_name + ", " + \
                "Last name: " + self.last_name + ", " + \
-                "Date of Birth: " + str(self.dob) + \
-               "Occupation: " + self.occupation + \
+                "Date of Birth: " + str(self.dob) +  ", "\
+               "Occupation: " + self.occupation + ", "\
                "Social Link: " + self.social_link
 
 # Course model

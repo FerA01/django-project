@@ -11,4 +11,7 @@ from crud.models import *
 from datetime import date
 
 
-# Your code starts from here:
+#Code starts from here:
+#Find all courses
+courses = Course.objects.all()
+print(courses)
