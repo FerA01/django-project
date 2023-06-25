@@ -85,6 +85,51 @@ def write_learners():
     learner_samuel.save()
     print("Learner objects all saved... ")
 
+def populate_course_instructor_relationships():
+    #Adding instructors to each course
+    courses = Course.objects.all()
+    instructors = Instructor.objects.all()
+    courses[0].instructors.add(instructors[0], instructors[1])
+    courses[1].instructors.add(instructors[2], instructors[3])
+    print("All fine!")
+
+def populate_course_enrollment_relationships():
+    #Gettings all courses Total = 2
+    courses = Course.objects.all()
+    learners = Learner.objects.all() #Total learners = 8
+
+    enrollment_learner_1 = Enrollment(date_enrolled = date(2023, 6, 1), mode = 'honor', course = courses[0], learner = learners[0])
+    enrollment_learner_1.save()
+    print("Learner " + learners[0].last_name + ", enrolled successfully")
+
+    enrollment_learner_2 = Enrollment(date_enrolled = date(2023, 6, 1), course = courses[1], learner = learners[1])
+    enrollment_learner_2.save()
+    print("Learner " + learners[1].last_name + ", enrolled successfully")
+
+    enrollment_learner_3 = Enrollment(date_enrolled = date(2023, 6, 3), course = courses[0], learner = learners[2])
+    enrollment_learner_3.save()
+    print("Learner " + learners[2].last_name + ", enrolled successfully")
+
+    enrollment_learner_4 = Enrollment(date_enrolled = date(2023, 6, 5), mode = 'honor', course = courses[1], learner = learners[3])
+    enrollment_learner_4.save()
+    print("Learner " + learners[3].last_name + ", enrolled successfully")
+
+    enrollment_learner_5 = Enrollment(date_enrolled = date(2023, 6, 4), course = courses[1], learner = learners[4])
+    enrollment_learner_5.save()
+    print("Learner " + learners[4].last_name + ", enrolled successfully")
+
+    enrollment_learner_6 = Enrollment(date_enrolled = date(2023, 6, 4), course = courses[1], learner = learners[5])
+    enrollment_learner_6.save()
+    print("Learner " + learners[5].last_name + ", enrolled successfully")
+
+    enrollment_learner_7 = Enrollment(date_enrolled = date(2023, 6, 2), mode = 'honor', course = courses[0], learner = learners[6])
+    enrollment_learner_7.save()
+    print("Learner " + learners[6].last_name + ", enrolled successfully")
+
+    enrollment_learner_8 = Enrollment(date_enrolled = date(2023, 6, 5), course = courses[1], learner = learners[7])
+    enrollment_learner_8.save()
+    print("Learner " + learners[7].last_name + ", enrolled successfully")
+
 def clean_data():
     # Delete all data to start from fresh
     Enrollment.objects.all().delete()
@@ -95,8 +140,10 @@ def clean_data():
     Lesson.objects.all().delete()
 
 # Clean any existing data first
-clean_data()
-write_courses()
-write_instructors()
-write_lessons()
-write_learners()
+#clean_data()
+#write_courses()
+#write_instructors()
+#write_lessons()
+#write_learners()
+#populate_course_instructor_relationships()
+populate_course_enrollment_relationships()
