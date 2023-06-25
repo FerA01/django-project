@@ -145,5 +145,5 @@ def clean_data():
 #write_instructors()
 #write_lessons()
 #write_learners()
-#populate_course_instructor_relationships()
+populate_course_instructor_relationships()
 populate_course_enrollment_relationships()
